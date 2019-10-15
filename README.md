@@ -24,6 +24,7 @@ react-native link react-native-vector-icons
 | videoWidth              | Width of the video to calculate the player size.                                            |
 | videoHeight             | Height of the video to calculate the player size.                                           |
 | duration                | Duration can not always be figured out (e.g. when using hls), this can be used as fallback. |
+| showCurrentTime         | Show a timestamp with the elapsed play time in the controls.                                |
 | autoplay                | Start the video automatically.                                                              |
 | defaultMuted            | Start the video muted, but allow toggling.                                                  |
 | muted                   | Start the video muted and hide the mute toggle button.                                      |
@@ -69,6 +70,7 @@ All other props are passed to the react-native-video component.
 | Method                  | Props           | Description                                                               |
 |-------------------------|-----------------|---------------------------------------------------------------------------|
 | seek                    | time: float     | Seek the player to the given time.                                        |
+| getCurrentTime          |                 | Get the player's current time.                                            |
 | stop                    |                 | Stop the playback and reset back to 0:00.                                 |
 | pause                   |                 | Pause the playback.                                                       |
 | resume                  |                 | Resume the playback.                                                      |
@@ -81,4 +83,6 @@ All other props are passed to the react-native-video component.
 - [X] Add fullscreen button
   - [ ] Add fullscreen button for Android (See PR #38 if you need fullscreen in Android)
 - [ ] Add loader
-- [ ] Add video duration/play time
+- [x] Add video play time
+- [ ] Add video duration
+
