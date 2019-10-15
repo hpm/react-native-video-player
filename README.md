@@ -20,11 +20,11 @@ react-native link react-native-vector-icons
 |-------------------------|---------------------------------------------------------------------------------------------|
 | video                   | The video source to pass to react-native-video.                                             |
 | thumbnail               | An Image source to use as thumbnail before the video gets loaded.                           |
-| endThumbnail            | An Image source to use as thumbnail after the video has ended.                           |
+| endThumbnail            | An Image source to use as thumbnail after the video has ended.                              |
+| endWithThumbnail        | Returns to the thumbnail after the video ends. If an `endThumbnail` image is not specified then the image specified in `thumbnail` is shown.                                                                            |
 | videoWidth              | Width of the video to calculate the player size.                                            |
 | videoHeight             | Height of the video to calculate the player size.                                           |
 | duration                | Duration can not always be figured out (e.g. when using hls), this can be used as fallback. |
-| showCurrentTime         | Show a timestamp with the elapsed play time in the controls.                                |
 | autoplay                | Start the video automatically.                                                              |
 | defaultMuted            | Start the video muted, but allow toggling.                                                  |
 | muted                   | Start the video muted and hide the mute toggle button.                                      |
@@ -34,7 +34,7 @@ react-native link react-native-vector-icons
 | loop                    | Loop the video after playback is done.                                                      |
 | resizeMode              | The video's resizeMode. defaults to contain and is passed to react-native-video.            |
 | hideControlsOnStart     | Hides the controls on start video.                                                          |
-| endWithThumbnail        | Returns to the thumbnail after the video ends. If an `endThumbnail` image is not specified then the image specified in `thumbnail` is shown.                                              |
+| hideCurrentTime         | Show a timestamp with the elapsed play time in the controls.                                |
 | disableSeek             | Disable video seeking.                                                                      |
 | pauseOnPress            | Automatically pause/play when pressing the video player anywhere.                           |
 | fullScreenOnLongPress   | Automatically show video on fullscreen when doing a long press.                             |
