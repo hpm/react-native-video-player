@@ -91,6 +91,10 @@ const styles = StyleSheet.create({
   overlayButton: {
     flex: 1,
   },
+  timeSyle: {
+    fontSize: 15,
+    color: 'rgba(255, 255, 255, 0.6)',
+  },
 });
 
 export default class VideoPlayer extends Component {
@@ -106,6 +110,7 @@ export default class VideoPlayer extends Component {
       isMuted: props.defaultMuted,
       isControlsVisible: !props.hideControlsOnStart,
       duration: 0,
+      currentTime: 0,
       isSeeking: false,
     };
 
@@ -173,6 +178,7 @@ export default class VideoPlayer extends Component {
     }
     this.setState({
       progress: event.currentTime / (this.props.duration || this.state.duration),
+      currentTime: event.currentTime
     });
   }
 
@@ -325,6 +331,10 @@ export default class VideoPlayer extends Component {
     });
     this.hideControls();
   }
+  
+  getCurrentTime() {
+    return this.state.currentTime
+  }
 
   seek(t) {
     this.player.seek(t);
@@ -351,6 +361,37 @@ export default class VideoPlayer extends Component {
       isPlaying: true,
     });
     this.showControls();
+  }
+  
+  formatTime(seconds) {
+    let hour = parseInt(seconds/3600);
+    let minute = parseInt(seconds/60);
+    let sec = parseInt(seconds%60);
+    console.log("Test input sec=", seconds, "hour=", hour, "minute=", minute, "sec=", sec);
+    let formatTime = 0;
+    if(hour > 99) {
+      console.log("Test input time out of bound, seconds=", seconds);
+      return formatTime;
+    }
+    if(seconds === 0) {
+      return '00:00';
+    }
+    if(hour < 10 && hour > 0) {
+      hour = '0' + hour.toString();
+    }
+    if(minute < 10) {
+      minute = '0' + minute.toString();
+    }
+    if(sec < 10) {
+      minute = '0' + sec.toString();
+    }
+    if(hour > 0) {
+      formatTime = hour + ':' + minute + ':' + sec;
+    }
+    else {
+      formatTime = minute + ':' + sec;
+    }
+    return formatTime;
   }
 
   renderStartButton() {
@@ -443,6 +484,11 @@ export default class VideoPlayer extends Component {
           />
         </TouchableOpacity>
         {this.renderSeekBar()}
+        {
+         <Text style={styles.timeSyle}>
+           {this.formatTime(this.state.currentTime)}
+          </Text>
+        }
         {this.props.muted ? null : (
           <TouchableOpacity onPress={this.onMutePress} style={customStyles.controlButton}>
             <Icon
