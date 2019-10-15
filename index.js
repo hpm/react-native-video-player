@@ -367,11 +367,9 @@ export default class VideoPlayer extends Component {
     let hour = parseInt(seconds/3600);
     let minute = parseInt(seconds/60);
     let sec = parseInt(seconds%60);
-    console.log("Test input sec=", seconds, "hour=", hour, "minute=", minute, "sec=", sec);
     let formatTime = 0;
     if(hour > 99) {
-      console.log("Test input time out of bound, seconds=", seconds);
-      return formatTime;
+      return hour.toString() + 'h'
     }
     if(seconds === 0) {
       return '00:00';
