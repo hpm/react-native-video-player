@@ -383,7 +383,7 @@ export default class VideoPlayer extends Component {
       minute = '0' + minute.toString();
     }
     if(sec < 10) {
-      minute = '0' + sec.toString();
+      sec = '0' + sec.toString();
     }
     if(hour > 0) {
       formatTime = hour + ':' + minute + ':' + sec;
