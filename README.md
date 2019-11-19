@@ -78,6 +78,7 @@ All other props are passed to the react-native-video component.
 ## Future features
 
 - [X] Make seek bar seekable.
+- [ ] Add buttons to skip forwards/backwards.
 - [x] Make player customizable.
 - [ ] Add volume control
 - [X] Add fullscreen button
