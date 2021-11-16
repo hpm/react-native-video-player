@@ -4,6 +4,9 @@ import { Image, ImageBackground, Platform, StyleSheet, TouchableOpacity, View, T
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Video from 'react-native-video'; // eslint-disable-line
 
+// fixes error: "Unrecognized font family 'Material Icons'"
+Icon.loadFont();
+
 const BackgroundImage = ImageBackground || Image; // fall back to Image if RN < 0.46
 
 let ViewPropTypesVar
@@ -331,7 +334,7 @@ export default class VideoPlayer extends Component {
     });
     this.hideControls();
   }
-  
+
   getCurrentTime() {
     return this.state.currentTime
   }
@@ -362,7 +365,7 @@ export default class VideoPlayer extends Component {
     });
     this.showControls();
   }
-  
+
   formatTime(seconds) {
     let hour = parseInt(seconds/3600);
     let minute = parseInt(seconds/60);
